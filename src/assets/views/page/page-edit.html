@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, user-scalable=no">
+  <link rel = "stylesheet" href = "../../vendors/bootstrap/dist/css/bootstrap.min.css">
+  <link rel = "stylesheet" href = "../../css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <title>Title</title>
+</head>
+<body>
+
+<nav id="page-nav" class="navbar navbar-fixed-top navbar-collapse collapsing" style="height: 60px">
+
+  <div class="container-fluid">
+    <div class="col-sm-4 col-xs-1 hidden-xs-down">
+      <p class="navbar-text pull-left">
+        <a href="page-list.html" class="nav-link">
+          <i class="fa fa-chevron-left" aria-hidden="true" style="color: black"></i>
+        </a>
+      </p>
+
+      <p class="navbar-header pull-left" style="padding-top: 15px">
+        <a class="navbar-brand">
+          <b>Pages</b>
+        </a>
+      </p>
+
+      <p class="navbar-text pull-right" style="padding-top: 20px">
+        <a href="page-new.html" class="navbar-link">
+          <i class="fa fa-plus" aria-hidden="true" style="color: black"></i>
+        </a>
+      </p>
+
+    </div>
+
+    <div class="col-sm-8">
+      <!--heading on the nav bar-->
+      <p class="navbar-header pull-left" style="padding-top: 10px">
+        <a class="navbar-brand">
+          <b>Edit Page</b>
+        </a>
+      </p>
+
+      <p class="navbar-text pull-right">
+        <a href="page-list.html" class="navbar-link">
+          <i class="fa fa-check" aria-hidden="true" style="color: black"></i>
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+</nav>
+
+<!--<nav id="page-nav" class="navbar navbar-default navbar-fixed-top">
+  <div class="row container-fluid">
+
+    <div class="col-sm-4">
+      <div class="navbar-text pull-left" style="margin-left: 0px;">
+        <a href="page-list.html">
+          <i class="fa fa-chevron-left" aria-hidden="true" style="color: black"></i>
+        </a>
+      </div>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <h2 style="color: dimgray">Pages</h2>
+        </a>
+      </div>
+      <!--
+      <div class="navbar-text pull-right" style="margin-right: 15px;">
+        <a href="#">
+          <i class="fa fa-plus" aria-hidden="true" style="color: white"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="col-sm-8">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <h2 style="color: dimgray">Edit Page</h2>
+        </a>
+      </div>
+      <div class="navbar-text pull-right" style="margin-right: 15px;">
+      <a href="page-list.html">
+        <i class="fa fa-check" aria-hidden="true" style="color: black"></i>
+      </a>
+    </div>
+    </div>
+  </div>
+</nav>
+-->
+
+<div class="container-fluid">
+
+  <div class="row">
+    <!--
+    <div class="col-sm-4">
+      Websites
+    </div>
+    <div class="col-sm-8">
+      New Website
+    </div>
+    -->
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <a href="#">
+          <li class="list-group-item">
+            Address Book App
+            <i class="fa fa-cog pull-right" aria-hidden="true" style="color: #007bff"></i>
+          </li>
+        </a>
+        <a href="#">
+          <li class="list-group-item">
+            Blogger
+            <i class="fa fa-cog pull-right" aria-hidden="true" style="color: #007bff"></i>
+
+          </li>
+        </a>
+        <a href="#">
+          <li class="list-group-item">
+            Blogging App
+            <i class="fa fa-cog pull-right" aria-hidden="true" style="color: #007bff"></i>
+
+          </li>
+        </a>
+        <a href="#">
+          <li class="list-group-item">
+            Script Testing App
+            <i class="fa fa-cog pull-right" aria-hidden="true" style="color: #007bff"></i>
+
+          </li>
+        </a>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control"></textarea>
+      </div>
+
+      <a href = "page-list.html" class="btn btn-danger btn-block">Delete</a>
+    </div>
+  </div>
+</div>
+
+<footer id="foot-nav" class="footer">
+  <div class="container-fluid">
+    <a href="../../views/user/profile.html">
+      <i class="fa fa-user pull-right" aria-hidden="true" style="font-size: 30px; color: #007bff"></i>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <h1>Register</h1>
+  <div *ngIf="errorFlag"
+       class="alert alert-danger">
+    {{errorMsg}}
+  </div>
+  <form (ngSubmit)="createUser()" #f="ngForm">
+    <div class="form-group">
+      <input name="userName"
+             id="userName"
+             ngModel
+             required
+             placeholder="username"
+             type="text"
+             class="form-control"
+             #userName="ngModel"/>
+      <span class="help-block"
+            *ngIf="!userName.valid && userName.touched">
+            Enter username!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <input name="firstName"
+             id="firstName"
+             ngModel
+             required
+             placeholder="First Name"
+             type="text"
+             class="form-control"
+             #firstName="ngModel"/>
+      <span class="help-block"
+            *ngIf="!firstName.valid && firstName.touched">
+            Enter firstName!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <input name="lastName"
+             id="lastName"
+             ngModel
+             required
+             placeholder="Last Name"
+             type="text"
+             class="form-control"
+             #lastName="ngModel"/>
+      <span class="help-block"
+            *ngIf="!lastName.valid && lastName.touched">
+            Enter lastName!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <input name="email"
+             id="email"
+             ngModel
+             required
+             placeholder="email"
+             type="email"
+             class="form-control"
+             #email="ngModel"/>
+      <span class="help-block"
+            *ngIf="!email.valid && email.touched">
+            Enter email!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <input name="password"
+             id="password"
+             ngModel
+             required
+             placeholder="password"
+             type="password"
+             class="form-control"
+             #password="ngModel"/>
+      <span class="help-block"
+            *ngIf="!password.valid && password.touched">
+             Enter password!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <input name="confirmPassword"
+             id="confirmPassword"
+             ngModel
+             required
+             placeholder="verify password"
+             type="password"
+             class="form-control"
+             #confirmPassword="ngModel"/>
+      <span class="help-block"
+            *ngIf="!confirmPassword.valid && confirmPassword.touched">
+            Verify Password!
+          </span>
+    </div>
+
+    <div class="form-group">
+      <button (click)="createUser()" type="submit" class="btn btn-primary btn-block"
+              [disabled]="!f.valid" routerLink="/landing">
+        Register
+      </button>
+    </div>
+    <div class="form-group">
+      <a class="btn btn-danger btn-block"
+         routerLink="/landing">
+        Cancel
+      </a>
+    </div>
+
+  </form>
+</div>
+
+

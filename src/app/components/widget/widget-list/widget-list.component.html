@@ -1,0 +1,139 @@
+<nav id="page-nav" class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-text pull-left" style="margin-left: 0px;">
+    <a [routerLink]="['/user', userId, 'application', wid, 'page']">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+  </div>
+
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">
+      Widgets
+    </a>
+  </div>
+
+  <div class="navbar-text pull-right">
+    <a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget', 'new']">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
+  </div>
+
+</nav>
+
+<div class="container-fluid" style="margin-top: 70px">
+  <div *ngFor="let widget of widgets">
+    <div [ngSwitch]="widget['type']">
+
+      <div *ngSwitchCase="'HEADER'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div [ngSwitch]="widget['size']">
+              <div *ngSwitchCase="1">
+                <h1>{{widget['text']}}</h1>
+              </div>
+              <div *ngSwitchCase="2">
+                <h2>{{widget['text']}}</h2>
+              </div>
+              <div *ngSwitchCase="3">
+                <h3>{{widget['text']}}</h3>
+              </div>
+              <div *ngSwitchCase="4">
+                <h4>{{widget['text']}}</h4>
+              </div>
+            </div>
+            <div class="dg-widget-toolbar">
+              <a (click)="goToEdit(widget)">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'YOUTUBE'" class="youtube-widget">
+        <div class="row">
+          <div class="col-xs-12">
+            <iframe [width]="widget['width']"
+                    height="300">
+            </iframe>
+            <div class="dg-widget-toolbar">
+              <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', widget['_id']]">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'IMAGE'">
+        <div class="row">
+          <div class="col-xs-12">
+            <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget']" class="thumbnail">
+              <img [style.width]="widget['width']">
+            </a>
+            <div class="dg-widget-toolbar">
+              <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', widget]">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'HTML'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div [innerHTML]="widget['html']">
+            </div>
+            <div class="dg-widget-toolbar">
+              <!--<a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', widget['_id']]">-->
+              <a (click)="goToEdit(widget)">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              <!--<span class="glyphicon glyphicon-menu-hamburger"></span>-->
+              <!--<span class="glyphicon glyphicon-cog"></span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'TEXT'">
+        <div class="row">
+          <div class="col-xs-12">
+            <div *ngIf="widget['formatted']">
+              <quill-editor [(ngModel)]="widget['text']" name="text"></quill-editor>
+            </div>
+
+            <input *ngIf="!widget['formatted']&& (!widget['rows']|| widget['rows']===1)"
+                   placeholder="{{widget['placeholder']}}" class="form-control"/>
+
+            <textarea *ngIf="!widget['formatted']&& (widget['rows']> 1)"
+                      rows="{{widget['rows']}}" placeholder="{{widget['placeholder']}}"
+                      class="form-control">{{widget['text']}}</textarea>
+
+            <div class="dg-widget-toolbar">
+              <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', widget['_id']]">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<footer id="foot-nav" class="footer">
+  <div class="container-fluid">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user pull-right" style="font-size: 30px;"></span>
+    </a>
+  </div>
+</footer>

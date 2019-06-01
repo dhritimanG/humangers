@@ -1,0 +1,47 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="row container-fluid">
+
+      <div class="dg-nav-items navbar-text pull-left" style="margin-left: 0px">
+        <a [routerLink]="['/user']">
+          <span class="glyphicon glyphicon-chevron-left" style="margin-left: 15px"></span>
+        </a>
+      </div>
+
+      <div class="dg-nav-items navbar-header pull-left" style="margin-left: 10px;
+            margin-top: 5px">
+        <a class="navbar-brand">
+          <b>Applications</b>
+        </a>
+      </div>
+
+      <div class="dg-nav-items navbar-text pull-right" style="margin-right: 0px">
+        <a [routerLink]="['/user', userId, 'application', 'new']">
+          <span class="glyphicon glyphicon-plus" style="margin-right: 15px"></span>
+        </a>
+      </div>
+
+  </div>
+</nav>
+
+<div class="container-fluid" style="margin-top: 70px">
+  <ul class="list-group">
+      <li *ngFor="let website of websites" class="list-group-item">
+        <a [routerLink]="['/user', userId, 'application', website._id, 'page']">
+          {{website.applicationName}}
+        </a>
+        <a [routerLink]="['/user', userId, 'application', website._id]"
+           class="pull-right">
+          <span class="glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+  </ul>
+</div>
+
+
+<footer class="footer">
+  <div class="container-fluid">
+    <a [routerLink]="['/user']">
+      <span class= "glyphicon glyphicon-user pull-right" style="font-size: 30px; color: white"></span>
+    </a>
+  </div>
+</footer>

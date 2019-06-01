@@ -1,0 +1,83 @@
+<nav id="page-nav" class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-text pull-left" style="margin-left: 0px;">
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget']">
+      <span class="glyphicon glyphicon-chevron-left pull-left"></span> </a>
+  </div>
+
+  <div class="navbar-header">
+    <a class="navbar-brand">
+      Widget Edit
+    </a>
+  </div>
+
+  <div class="navbar-text pull-right">
+    <a (click)="create()">
+      <span class="glyphicon glyphicon-ok pull-left"></span>
+    </a>
+  </div>
+
+</nav>
+
+
+<div class="container-fluid" style="margin-top: 70px">
+  <form>
+    <div class="form-group">
+      <label>
+        Text
+      </label>
+      <input [(ngModel)]="text"
+             class="form-control"
+             name="text"/>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Rows
+      </label>
+      <input [(ngModel)]="rows" class="form-control" type="number" name="rows"/>
+    </div>
+
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input [(ngModel)]="name"
+             type="text"
+             class="form-control"
+             id="Name"
+             name="name"
+             placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <label>Placeholder</label>
+      <input [(ngModel)]="placeholder" class="form-control" name="placeholder" required/>
+    </div>
+
+    <span class="input-group-addon">
+            <input [(ngModel)]="widget['formatted']"
+                   name="formatted"
+                   type="checkbox"/></span>
+    <div class="form-group">
+      <a (click)="update()"
+         class="btn btn-primary btn-block ">
+        Update Widget
+      </a>
+    </div>
+    <div class="form-group">
+      <a (click)="delete()"
+         class="btn btn-danger btn-block ">
+        Delete
+      </a>
+    </div>
+  </form>
+</div>
+
+
+<footer id="foot-nav" class="footer">
+  <div class="container-fluid">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user pull-right" style="font-size: 30px"></span>
+    </a>
+  </div>
+</footer>
+

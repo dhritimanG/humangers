@@ -1,0 +1,51 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="row container-fluid">
+
+    <div class="dg-nav-items navbar-text pull-left" style="margin-left: 15px">
+      <a [routerLink]="['/user', userId, 'application']">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </div>
+
+    <div class="dg-nav-items navbar-text pull-right" style="margin-right: 30px">
+      <a [routerLink]="['/user', userId, 'application', wid, 'page', 'new']">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </div>
+
+
+    <div class="dg-nav-items navbar-header pull-left" style="margin-left: 25px;
+            margin-top: 5px">
+      <a class="navbar-brand">
+        <b>Page List</b>
+      </a>
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="container-fluid" style="margin-top: 70px">
+  <ul class="list-group">
+    <div *ngFor="let page of mykey">
+      <li class="list-group-item">
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', page, 'widget']">
+          {{page}}
+        </a>
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', page]"
+           class="pull-right">
+          <span class="glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+    </div>
+  </ul>
+</div>
+
+
+<footer class="footer">
+  <div class="dg-nav-items container-fluid pull-right">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user"></span>
+    </a>
+  </div>
+</footer>

@@ -1,0 +1,65 @@
+<nav id = "page-nav" class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-text pull-left" style="margin-left: 0px;">
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget']">
+      <span class="glyphicon glyphicon-chevron-left" style="color: black"></span>
+    </a>
+  </div>
+
+  <div class="navbar-header">
+    <a class="navbar-brand pull-left">
+      Choose Widget
+    </a>
+  </div>
+
+</nav>
+
+<div class="container-fluid" style="margin-top: 70px">
+  <ul class="list-group">
+    <a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget', 'new', 'heading']">
+      <li class="list-group-item">
+        Header
+      </li>
+    </a>
+
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', 'new', 'image']">
+      <li class="list-group-item">
+        Image
+      </li>
+    </a>
+
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', 'new', 'youtube']">
+      <li class="list-group-item">
+        YouTube
+      </li>
+    </a>
+
+    <a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget', 'new', 'html']">
+      <li class="list-group-item">
+        HTML
+      </li>
+    </a>
+
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', 'new', 'text']">
+      <li class="list-group-item">
+        TEXT
+      </li>
+    </a>
+
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget', 'new', 'image', 'search']">
+      <li class="list-group-item">
+        Flickr
+      </li>
+    </a>
+
+
+  </ul>
+</div>
+
+<footer id="foot-nav" class="footer">
+  <div class="container-fluid">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user pull-right" style="font-size: 30px"></span>
+    </a>
+  </div>
+</footer>

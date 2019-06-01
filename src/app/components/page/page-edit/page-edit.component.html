@@ -1,0 +1,124 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="row container-fluid">
+
+    <div class="col-sm-5 hidden-xs">
+
+      <div class="dg-nav-items navbar-text pull-left" style="margin-left: 0px">
+        <a [routerLink]="['/user', userId, 'application', wid, 'page']">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      </div>
+
+      <div class="dg-nav-items navbar-header pull-left" style="margin-left: 10px;
+            margin-top: 5px">
+        <a class="navbar-brand">
+          <b>Pages</b>
+        </a>
+      </div>
+
+      <div class="dg-nav-items navbar-text pull-right" style="margin-right: 0px">
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', 'new']">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="col-sm-7 col-xs-12">
+
+      <div class="dg-nav-items navbar-header pull-left" style="margin-left: 25px;
+            margin-top: 5px">
+        <a class="navbar-brand">
+          <b>Edit Page</b>
+        </a>
+      </div>
+
+      <div class="dg-nav-items navbar-text pull-right" style="margin-right: 0px">
+        <a (click)="update()">
+          <span class="glyphicon glyphicon-ok"></span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+<div class="dg-left-pane col-sm-5 hidden-xs">
+  <ul class="list-group">
+    <div *ngFor="let page of mykey">
+      <li class="list-group-item">
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget']">
+          {{page}}
+        </a>
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', pid]"
+           class="pull-right">
+          <span class="glyphicon glyphicon-cog"></span>
+        </a>
+      </li>
+    </div>
+  </ul>
+</div>
+<!--<div class="dg-left-pane col-sm-5 hidden-xs">-->
+
+  <!--<ul class="list-group">-->
+    <!--<div *ngFor="let page of pages">-->
+      <!--<li class="list-group-item">-->
+        <!--<a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget']">-->
+          <!--{{page.name}}-->
+        <!--</a>-->
+        <!--<a [routerLink]="['/user', userId, 'application', wid, 'page', pid]"-->
+           <!--class="pull-right">-->
+          <!--<span class="glyphicon glyphicon-cog"></span>-->
+        <!--</a>-->
+      <!--</li>-->
+    <!--</div>-->
+  <!--</ul>-->
+
+<!--</div>-->
+
+<div class="dg-right-pane col-sm-7">
+
+  <form #f="ngForm">
+  <div class="dg-right-pane-items">
+    <label>Name</label>
+    <input placeholder="Page Name"
+           name="pageName"
+           id = "pageName"
+           type="text"
+           class="form-control"
+           [(ngModel)]= pid
+           required
+           #username="ngModel"/>
+  </div>
+
+  <div class="dg-right-pane-items">
+    <label>Route</label>
+    <textarea placeholder="Routing name"
+              name="pageDesc"
+              id = "pageDesc"
+              type="text"
+              class="form-control"
+              [(ngModel)]=route
+              required
+              #username="ngModel"></textarea>
+  </div>
+  </form>
+
+  <div class="dg-right-pane-items">
+    <a (click)="delete()"
+       class="btn btn-danger btn-block">Delete
+    </a>
+  </div>
+
+
+</div>
+
+
+<footer class="footer">
+  <div class="dg-nav-items container-fluid pull-right">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user"></span>
+    </a>
+  </div>
+</footer>

@@ -1,0 +1,60 @@
+<nav id = "page-nav" class="navbar navbar-default navbar-fixed-top">
+
+  <div class="navbar-text pull-left" style="margin-left: 0px;">
+    <a [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget']">
+      <span class="glyphicon glyphicon-chevron-left pull-left"></span>    </a>
+  </div>
+
+  <div class="navbar-header">
+    <a class="navbar-brand">
+      Widget Edit
+    </a>
+  </div>
+
+  <div class="navbar-text pull-right">
+    <a (click)="create()">
+      <span class="glyphicon glyphicon-ok pull-left"></span>
+    </a>
+  </div>
+
+</nav>
+
+<div class="container-fluid" style="margin-top: 70px">
+  <form>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label>Text</label>
+      <input type="text" class="form-control" placeholder="abcd">
+    </div>
+    <div class="form-group">
+      <label>URL</label>
+      <input type="url" class="form-control" placeholder="xyz.com">
+    </div>
+    <div class="form-group">
+      <label>Width</label>
+      <input type="range" class="form-control" placeholder="100%">
+    </div>
+    <div class="form-group">
+      <label>Upload</label>
+      <input type="file" class="form-control">
+    </div>
+    <a href = "#" class="btn btn-primary btn-block">Upload Image</a>
+    <a (click)="delete()"
+       class="btn btn-danger btn-block "
+       [routerLink]="['/user', userId, 'website', wid, 'page', pid, 'widget']">Delete</a>
+  </form>
+
+
+
+</div>
+
+<footer id="foot-nav" class="footer">
+  <div class="container-fluid">
+    <a [routerLink]="['/user', userId]">
+      <span class="glyphicon glyphicon-user pull-right" style="font-size: 30px"></span>
+    </a>
+  </div>
+</footer>
