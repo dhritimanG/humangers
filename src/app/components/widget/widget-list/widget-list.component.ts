@@ -46,6 +46,10 @@ export class WidgetListComponent implements OnInit {
               this.widgets = this.pageName[this.pid].widgets;
               console.log(this.widgets);
           });
+      // this.widgetService.createPrescription("Hello", "world")
+      // .subscribe((response: any) => {
+      //   console.log(response);
+      // }
   }
 
   // updatePosition(event: Object) {

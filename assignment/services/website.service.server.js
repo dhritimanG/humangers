@@ -159,6 +159,7 @@ module.exports = function (app) {
   }
 
   function updateWidget(req, res) {
+    console.log("heloo ----------------------------------------------------");
       var appId = req.params['appId'];
       var pageName = req.params['pid'];
       var widgetIndex = req.params['widgetIndex'];

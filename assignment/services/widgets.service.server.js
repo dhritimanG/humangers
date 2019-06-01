@@ -3,7 +3,7 @@ module.exports = function (app) {
   var upload = multer({ dest: __dirname+'/../../src/assets/uploads' });
   var WidgetModel = require('../model/widget/widget.model.server');
 
-  app.post('/api/page/:pageId/widget', createWidget);
+  app.post('/api/page/:pageId/widget', createPrescription);
   app.get('/api/page/:pageId/widget', findAllWidgetsForPage);
   app.get('/api/widget/:widgetId', findWidgetById);
   app.delete('/api/widget/:widgetId', deleteWidget);
@@ -12,6 +12,15 @@ module.exports = function (app) {
   app.post ('/api/upload', upload.single('myFile'), uploadImage);
   app.put('/api/page/:pageId/widget', updateWidgetOrder);
 
+  function createPrescription(req, res) {
+    var prescription = req.body;
+    console.log(prescription + " in the server + +++++++++++++++++++++++++++++++++++++++++");
+    
+    WidgetModel.createWidget(widget.pageId, widget)
+      .then(function (widget) {
+        res.json(widget);
+      })
+  }
 
   function findAllWidgetsForPage(req, res) {
     var pageId = req.params['pageId'];

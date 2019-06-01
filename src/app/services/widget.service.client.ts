@@ -13,16 +13,30 @@ export class WidgetService {
   constructor(private http: Http) {
   }
   baseUrl = environment.baseUrl;
+  FDAUrl;
 
   api = {
     'createWidget'   : this.createWidget,
     'findWidgetById' : this.findWidgetById,
     'findWidgetsByPageId' : this.findWidgetsByPageId,
-    'updateWidget' : this.updateWidget,
+    'updateWidget' : this.createPrescription,
     'deleteWidget' : this.deleteWidget
   };
 
+  createPrescription(doctorId: string, prescription: any) {
+    console.log(" in create prescription---------------------------------");
+    this.FDAUrl = "https://api_basics.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search=product_ndc:"+ "68071-3212" + "&limit=1";
+    return this.http.get(this.FDAUrl)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
   createWidget(pageId: string, widget: any) {
+    console.log(" in create widget--------------------------------------");
     widget.pageId = pageId;
     return this.http.post(this.baseUrl + '/api/page/' + pageId + '/widget', widget)
       .map(

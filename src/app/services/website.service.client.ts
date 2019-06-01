@@ -111,7 +111,33 @@ export class WebsiteService {
             });
     }
 
-    updateWidget(appId, pid, widgetIndex, widget) {
+    updateWidget(appId, pid, widgetIndex, prescription) {
+      console.log(" in create prescription---------------------------------");
+      return this.http.get("https://api.fda.gov/drug/ndc.json?search=product_ndc:68071-3212&limit=1")
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            console.log(data.results[0].generic_name + " ---------------------------------");
+            prescription.drugName = data.results[0].generic_name;
+            prescription.dosage = data.results[0].active_ingredients[0].strength;
+
+            return this.http.put(this.baseUrl + '/api/application/' + appId + '/page/' + pid + '/widget/' + widgetIndex, prescription)
+              .map(
+                (res: Response) => {
+                  const data = res.json();
+                  return data;
+                }
+              );
+          // return this.http.put(this.baseUrl + '/api/application/' + appId + '/page/' + pid + '/widget/' + widgetIndex, prescription)
+          //   .map((res: Response) => {
+          //       const data = res.json();
+          //       return data;
+          //   });
+          }
+        );
+    }
+
+    updateWidget2(appId, pid, widgetIndex, widget) {
       console.log(widgetIndex);
       console.log(widget);
         return this.http.put(this.baseUrl + '/api/application/' + appId + '/page/' + pid + '/widget/' + widgetIndex, widget)
