@@ -1,19 +1,3 @@
-<h1>About Me</h1>
-Hi, My name is Dhritiman Ganguly. I am a graduate student pursuing MS in CS from Northeastern University. This semester I am taking CS 5610: Web Development and CS 5200: Database Management System under Prof. Jose Annunziato. Some of the projects I have worked on in the past include:
-<ul>
-  <li> creating a prototype Demonstrator app using Java Swing, XML and JDOM </li>
-  <li> renovating my undergrad college cultural and tech-fest website using HTML5, CSS and PHP </li>
-  <li> developing a DTMF-controlled Surveillance Drone </li>
-  <li> designing a Flash application with GUI illustrating the FIFO, LRU and Optimal Page Replacement policies using ActionScript </li>
-  <li> developing a 2d platformer game in Director MX using Lingo </li>
-</ul>
-
-<h2>About this repository</h2>
-This repository will contain my code for the assignments and the project for my Web Development course.
-
-<h2>Assignment 1 app on Heroku link</h2>
-https://webdev-ganguly-dhritiman.herokuapp.com/
-
 # AngularFourMEANSeed
 
 After you clone this repository and run "npm install"
