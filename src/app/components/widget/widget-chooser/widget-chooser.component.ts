@@ -1,3 +1,4 @@
+import { WebsiteService } from './../../../services/website.service.client';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WidgetService} from '../../../services/widget.service.client';
@@ -13,39 +14,45 @@ export class WidgetChooserComponent implements OnInit {
   userId: string;
   widget: any;
   wid: string;
+  drugCode: string;
+  drugDesc: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
               private router: Router,
-              private widgetService: WidgetService) { }
+              private widgetService: WidgetService,
+              private websiteService: WebsiteService) { }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.userId = params['userId'];
-          this.pid = params['pid'];
           this.wid = params['wid'];
+          this.pid = params['pid'];
         }
       );
   }
 
-  create(type) {
+  create() {
+    console.log(this.drugCode);
+    console.log(this.drugDesc);
     const widget = {
-      widgetType: type
+      drugCode: this.drugCode,
+      drugDesc: this.drugDesc
     };
-    this.widget = this.widgetService.createWidget(this.pid, widget)
+    // this.widget = this.widgetService.createWidget(this.pid, widget)
+    this.widget = this.websiteService.addWidgetsToPage(this.wid, this.pid, widget)
       .subscribe(
         (new_widget: any) => {
           this.router.navigate([
             'user/',
             this.userId,
-            'website',
+            'application',
             this.wid,
             'page',
             this.pid,
-            'widget',
-            new_widget._id]);
+            'widget']);
         }
       );
   }

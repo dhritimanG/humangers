@@ -75,9 +75,15 @@ export class WebsiteService {
   }
   addWidgetsToPage(appId, pid, widget) {
       return this.http.put(this.baseUrl + '/api/application/' + appId + '/page/' + pid + '/widget', widget)
+      // return this.http.get("https://api.fda.gov/drug/ndc.json?search=product_ndc:68071-3212&limit=1")
           .map((res: Response) => {
               const data = res.json();
-              return data;
+              
+              // widget.drugCode = data.results[0].generic_name;
+              // widget.drugDesc = data.results[0].active_ingredients[0].strength;
+      
+              console.log(res)
+              return widget;
           });
   }
   deletePage(appId, pid) {

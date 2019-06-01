@@ -72,7 +72,7 @@
     <div class="col-sm-5 hidden-xs">
 
       <div class="dg-nav-items navbar-text pull-left" style="margin-left: 0px">
-        <a [routerLink]="['/user', userId, 'application', wid, 'page', page, 'widget']">
+        <a [routerLink]="['/user', userId, 'application', wid, 'page', pid, 'widget']">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
       </div>
@@ -96,8 +96,8 @@
       </div>
 
       <div class="dg-nav-items navbar-text pull-right" style="margin-right: 0px">
-        <!-- <a (click)="create()"> -->
-            <a [routerLink]="['/user', userId, 'application', wid, 'page', page, 'widget']">
+        <a (click)="create()">
+          <!-- <a [routerLink]="['/user', userId, 'application', wid, 'page', page, 'widget']"> -->
           <span class="glyphicon glyphicon-ok"></span>
         </a>
       </div>
@@ -125,31 +125,31 @@
 </div>
 
 <div class="dg-right-pane col-sm-7">
-  <form #f="ngForm">
-  <div class="dg-right-pane-items">
-    <label>Drug Code</label>
-    <input placeholder="Drug Code"
-           name="name"
-           id="name"
-           type="text"
-           class="form-control"
-           ngModel
-           required
-           #username="ngModel"/>
-  </div>
+  
+    <div class="dg-right-pane-items">
+      <label>Drug Code</label>
+      <input placeholder="Drug Code"
+            name="name"
+            id="name"
+            type="text"
+            class="form-control"
+            [(ngModel)] = "drugCode"
+            required
+            #username="ngModel"/>
+    </div>
 
-  <div class="dg-right-pane-items">
-    <label>Description</label>
-    <textarea placeholder="Description"
-              name="description"
-              id="description"
-              type="text"
-              class="form-control"
-              ngModel
-              required
-              #username="ngModel"></textarea>
-  </div>
-  </form>
+    <div class="dg-right-pane-items">
+      <label>Description</label>
+      <textarea placeholder="Description"
+                name="description"
+                id="description"
+                type="text"
+                class="form-control"
+                [(ngModel)] = "drugDesc"
+                required
+                #username="ngModel"></textarea>
+    </div>
+  
 </div>
 
 
